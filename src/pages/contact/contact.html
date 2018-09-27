@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title >
+        <p class="center" style="color:rgb(255, 255, 255);">Evento</p>     
+    </ion-title>  
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let post of posts; let i = index">
+
+        <ion-item>
+         
+          <h2 style="font-size:30px;margin: auto;
+          width: 50%;
+          padding: 10px;"> {{post.nome_evento}}</h2>
+          
+        </ion-item>
+      
+        <img [src]="post.img_evento">
+      
+        <ion-card-content>
+            <p>{{post.desc_evento}}</p>
+        </ion-card-content>
+      
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start small>
+              <ion-icon name="ios-clock"></ion-icon>
+              <div>{{post.hora_evento}}</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start small>
+              <ion-icon name="logo-usd"></ion-icon>
+              <div>{{post.preco_evento}}</div>
+            </button>
+          </ion-col>
+
+          <ion-col>
+              <button ion-button icon-start small>
+                <ion-icon name="ios-calendar"></ion-icon>
+                <div>{{post.data_evento}}</div>
+              </button>
+            </ion-col>
+
+          <ion-col center text-center style="font-weight: bold;color:black;">
+            <ion-note>
+                {{post.end_evento}}
+            </ion-note>
+          </ion-col>
+
+
+          <ion-col>
+              <button ion-button icon-start clear item-end>
+                  <ion-icon name="navigate"></ion-icon>
+                <div>Ir até o evento</div>
+              </button>
+            </ion-col>
+        </ion-row>
+      
+      </ion-card>
+</ion-content>

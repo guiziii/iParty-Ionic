@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-searchbar style="background-color:#141D26;" (ionInput)="getItems($event)" [debounce]="500" placeholder="Digite o nome do evento..."></ion-searchbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-thumbnail item-start>
+          <img class="circle-pic" [src]="item.img_evento">
+        </ion-thumbnail>
+        <h2> {{item.nome_evento}}</h2> 
+        <p>{{item.desc_evento}}</p>   
+        <button ion-button clear item-end (click) = "ItemClick(item.id_evento, item.longitude_evento, item.latitude_evento)">Ver Evento</button>
+      </ion-item>
+    </ion-list> 
+
+</ion-content>   

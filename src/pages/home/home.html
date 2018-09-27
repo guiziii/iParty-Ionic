@@ -1,0 +1,52 @@
+<ion-header >
+    <ion-navbar color="primary">
+       
+      <ion-title>
+         <p style="color:rgb(255, 255, 255);">iParty</p>     
+      </ion-title>    
+      <ion-buttons end> 
+          <button ion-button icon-only color="light" (click) = "ToolbarClick()">
+            <ion-icon   name="funnel"></ion-icon>
+          </button>
+        </ion-buttons> 
+    </ion-navbar> 
+    
+  </ion-header> 
+ 
+<ion-content padding class="masters"> 
+  
+    
+    <ion-refresher (ionRefresh)="doRefresh($event);">
+      <ion-refresher-content 
+        pullingText="Puxe para atualizar"
+        pullingIcon="arrow-dropdown"
+        refreshingSpinner="circles"
+        refreshingText="..carregando">
+      </ion-refresher-content>
+   </ion-refresher>
+  
+  <ion-card *ngFor="let post of posts; let i = index">
+
+    <img [src]="post.img_evento" (click) = "ItemClick(post.id_evento, post.longitude_evento, post.latitude_evento)">
+   
+  
+    <ion-item >
+      <ion-icon name="ios-wine" item-start large></ion-icon>
+      <h2> {{post.nome_evento}}</h2>
+      <p>{{post.desc_evento}}</p>  
+    </ion-item> 
+     
+    <ion-item class="masters2"> 
+      <span item-start style="color:rgb(255, 255, 255);">{{posts3[i]}}</span>
+      <span item-start clear item-end style="color:rgb(255, 255, 255);">
+        <ion-icon name="ios-locate"></ion-icon>
+        {{posts2[i]}}
+      </span>
+      
+    </ion-item>
+  
+  </ion-card>
+
+
+      
+</ion-content>
